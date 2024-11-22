@@ -31,7 +31,7 @@
 
 ### 模型结构
 对开源基模型LLaMA进行结构优化，通过全参训练实现作物生长状态的长距离时序预测，集成DSSAT、WOFOST、APSIM、Lintul3等传统作物生长预测功能。
-<img src="assets/structure.png">
+<img src="assets/structure.jpg">
 
 ### 模型使用演示
 <img src="assets\PixPin_2024-11-22_18-39-15.gif">
