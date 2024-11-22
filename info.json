@@ -1,0 +1,434 @@
+{
+    "crop": [
+        "Wheat",
+        "Rice",
+        "Maize",
+        "Soybean"
+    ],
+    "variety": {
+        "Wheat": [
+            "Winter_wheat_107",
+            "Winter_wheat_102",
+            "spring_wheat",
+            "Winter_wheat_105",
+            "Winter_wheat_101",
+            "Winter_wheat_106",
+            "Winter_wheat_104",
+            "apache",
+            "Winter_wheat_103",
+            "bermude"
+        ],
+        "Rice": [
+            "Rice_IR72_DS",
+            "Rice_IR72_WS",
+            "Rice_IR64616H_DS",
+            "Rice_IR64616H_WS",
+            "Rice_IR72",
+            "Rice_IR64",
+            "Rice_HYV_IR8",
+            "Rice_IR8A"
+        ],
+        "Maize": [
+            "Grain_maize_202",
+            "Grain_maize_201",
+            "Grain_maize_203",
+            "Maize_VanHeemst_1988",
+            "Grain_maize_205",
+            "Grain_maize_204"
+        ],
+        "Soybean": [
+            "Soybean_906",
+            "Soybean_903",
+            "Soybean_902",
+            "Soybean_901",
+            "Soybean_905",
+            "Soybean_904",
+            "Soybean_VanHeemst_1988"
+        ]
+    },
+    "location": [
+        "辽宁铁岭市三江口农场",
+        "吉林四平市辽河农场",
+        "黑龙江双鸭山农场",
+        "黑龙江建三江七星农场",
+        "黑龙江建三江鸭绿河农场"
+    ],
+    "request_varibles": {
+        "CROP": {
+            "unit": "",
+            "type": "string",
+            "description": "作物类别，只可为上述crop中的一种",
+            "default": "Wheat"
+        },
+        "VARIETY": {
+            "unit": "",
+            "type": "string",
+            "description": "作物品种，只可为上述variety中的一种",
+            "default": "Winter_wheat_107"
+        },
+        "INITIAL_DATE": {
+            "unit": "",
+            "type": "string",
+            "description": "模拟种植初始日期(格式为YYYY-MM-DD, 受后端天气查询接口限制, 请勿晚于当前日期200天前)",
+            "default": "2015-01-25"
+        },
+        "PREDICT_DATE": {
+            "unit": "",
+            "type": "string",
+            "description": "模拟种植预测日期(格式为YYYY-MM-DD, 后端预测天数最大为200天)",
+            "default": "2015-04-25"
+        },
+        "LOCATION": {
+            "unit": "",
+            "type": "string",
+            "description": "模拟种植地点，只可为上述location中的一个",
+            "default": "黑龙江建三江七星农场"
+        },
+        "SM0": {
+            "unit": "",
+            "type": "float",
+            "description": "土壤孔隙度",
+            "min": 0.0,
+            "max": 1.0
+        },
+        "SMW": {
+            "unit": "",
+            "type": "float",
+            "description": "萎蔫点土壤体积含水量",
+            "min": 0.0,
+            "max": 1.0
+        },
+        "CRAIRC": {
+            "unit": "",
+            "type": "float",
+            "description": "根系通气的临界空气含量",
+            "min": 0.0,
+            "max": 1.0
+        },
+        "SOPE": {
+            "unit": "",
+            "type": "float",
+            "description": "根区最大渗透率",
+            "min": 0.0,
+            "max": 1.0
+        },
+        "KSUB": {
+            "unit": "",
+            "type": "float",
+            "description": "亚土壤最大渗透率",
+            "min": 0.0,
+            "max": 1.0
+        },
+        "WAV": {
+            "unit": "cm",
+            "type": "float",
+            "description": "土壤剖面中初始的水量",
+            "min": 0.0,
+            "max": 100.0
+        },
+        "TBASEM": {
+            "unit": "摄氏度",
+            "type": "float",
+            "description": "出苗的基础温度",
+            "min": -99.0,
+            "max": 100.0
+        },
+        "TEFFMX": {
+            "unit": "摄氏度",
+            "type": "float",
+            "description": "出苗的最大有效温度",
+            "min": -99.0,
+            "max": 100.0
+        },
+        "TSUMEM": {
+            "unit": "摄氏度",
+            "type": "float",
+            "description": "从播种到出苗的温度总和",
+            "min": 0.0,
+            "max": 3000.0
+        },
+        "TSUM1": {
+            "unit": "摄氏度",
+            "type": "float",
+            "description": "从出苗到开花期的温度总和",
+            "min": 0.0,
+            "max": 3000.0
+        },
+        "TSUM2": {
+            "unit": "摄氏度",
+            "type": "float",
+            "description": "从开花期到成熟期的温度总和",
+            "min": 0.0,
+            "max": 3000.0
+        },
+        "DVSI": {
+            "unit": "",
+            "type": "float",
+            "description": "出苗的初始发育阶段",
+            "min": 0.0,
+            "max": 2.0
+        },
+        "TDWI": {
+            "unit": "kg ha-1",
+            "type": "float",
+            "description": "初始总作物干重",
+            "min": 0.0,
+            "max": 500.0
+        },
+        "LVLAIEM": {
+            "unit": "kg ha-1",
+            "type": "float",
+            "description": "初始总作物干重",
+            "min": 0.0,
+            "max": 500.0
+        },
+        "SPAN": {
+            "unit": "days",
+            "type": "int",
+            "description": "在35摄氏度下生长的叶片的寿命",
+            "min": 0,
+            "max": 200
+        },
+        "TBASE": {
+            "unit": "摄氏度",
+            "type": "float",
+            "description": "叶片老化温度的下限",
+            "min": 0.0,
+            "max": 200.0
+        },
+        "CVL": {
+            "unit": "",
+            "type": "float",
+            "description": "叶子的同化物转换因子",
+            "min": 0.0,
+            "max": 1.0
+        },
+        "CVO": {
+            "unit": "",
+            "type": "float",
+            "description": "储存器官的同化物转换因子",
+            "min": 0.0,
+            "max": 1.0
+        },
+        "CVR": {
+            "unit": "",
+            "type": "float",
+            "description": "根的同化物转换因子",
+            "min": 0.0,
+            "max": 1.0
+        },
+        "CVS": {
+            "unit": "",
+            "type": "float",
+            "description": "茎的同化物转换因子",
+            "min": 0.0,
+            "max": 1.0
+        },
+        "RML": {
+            "unit": "",
+            "type": "float",
+            "description": "叶的相对维持呼吸率",
+            "min": 0.0,
+            "max": 1.0
+        },
+        "RMO": {
+            "unit": "",
+            "type": "float",
+            "description": "储藏器官的相对维持呼吸率",
+            "min": 0.0,
+            "max": 1.0
+        },
+        "RMR": {
+            "unit": "",
+            "type": "float",
+            "description": "根的相对维持呼吸率",
+            "min": 0.0,
+            "max": 1.0
+        },
+        "RMS": {
+            "unit": "",
+            "type": "float",
+            "description": "茎的相对维持呼吸率",
+            "min": 0.0,
+            "max": 1.0
+        },
+        "CFET": {
+            "unit": "",
+            "type": "float",
+            "description": "潜在蒸腾速率的校正因子",
+            "min": 0.0,
+            "max": 1.0
+        },
+        "RDI": {
+            "unit": "cm",
+            "type": "float",
+            "description": "初始根系深度",
+            "min": 0.0,
+            "max": 100.0
+        },
+        "RRI": {
+            "unit": "cm",
+            "type": "float",
+            "description": "根系深度的每日增加",
+            "min": 0.0,
+            "max": 100.0
+        },
+        "RDMCR": {
+            "unit": "cm",
+            "type": "float",
+            "description": "作物的最大根系深度",
+            "min": 0.0,
+            "max": 1000.0
+        },
+        "SMLIM": {
+            "unit": "",
+            "type": "float",
+            "description": "初始可生根深度区间的最大水分含量",
+            "min": 0.0,
+            "max": 1.0
+        },
+        "SSMAX": {
+            "unit": "cm",
+            "type": "float",
+            "description": "最大地表存储水量",
+            "min": 0.0,
+            "max": 100.0
+        },
+        "N": {
+            "type": "array",
+            "description": "氮肥施用信息，用一个对象数组存储多次施肥信息，第n个对象存储第n次的施肥信息",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "date": {
+                        "type": "string",
+                        "description": "日期,YYYY-MM-DD"
+                    },
+                    "amount": {
+                        "type": "float",
+                        "description": "施肥量数值"
+                    }
+                }
+            }
+        },
+        "P": {
+            "type": "array",
+            "description": "磷肥施用信息，用一个对象数组存储多次施肥信息，第n个对象存储第n次的施肥信息",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "date": {
+                        "type": "string",
+                        "description": "日期,YYYY-MM-DD"
+                    },
+                    "amount": {
+                        "type": "float",
+                        "description": "施肥量数值"
+                    }
+                }
+            }
+        },
+        "K": {
+            "type": "array",
+            "description": "钾肥施用信息，用一个对象数组存储多次施肥信息，第n个对象存储第n次的施肥信息",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "date": {
+                        "type": "string",
+                        "description": "日期,YYYY-MM-DD"
+                    },
+                    "amount": {
+                        "type": "float",
+                        "description": "施肥量数值"
+                    }
+                }
+            }
+        },
+        "NH4": {
+            "type": "array",
+            "description": "复合铵肥施用信息，用一个对象数组存储多次施肥信息，第n个对象存储第n次的施肥信息",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "date": {
+                        "type": "string",
+                        "description": "日期,YYYY-MM-DD"
+                    },
+                    "amount": {
+                        "type": "float",
+                        "description": "施肥量数值"
+                    }
+                }
+            }
+        },
+        "NO3": {
+            "type": "array",
+            "description": "复合硝酸肥施用信息，用一个对象数组存储多次施肥信息，第n个对象存储第n次的施肥信息",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "date": {
+                        "type": "string",
+                        "description": "日期,YYYY-MM-DD"
+                    },
+                    "amount": {
+                        "type": "float",
+                        "description": "施肥量数值"
+                    }
+                }
+            }
+        },
+        "K2O": {
+            "type": "array",
+            "description": "复合氧化钾肥施用信息，用一个对象数组存储多次施肥信息，第n个对象存储第n次的施肥信息",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "date": {
+                        "type": "string",
+                        "description": "日期,YYYY-MM-DD"
+                    },
+                    "amount": {
+                        "type": "float",
+                        "description": "施肥量数值"
+                    }
+                }
+            }
+        },
+        "P2O5": {
+            "type": "array",
+            "description": "复合磷酸肥施用信息，用一个对象数组存储多次施肥信息，第n个对象存储第n次的施肥信息",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "date": {
+                        "type": "string",
+                        "description": "日期,YYYY-MM-DD"
+                    },
+                    "amount": {
+                        "type": "float",
+                        "description": "施肥量数值"
+                    }
+                }
+            }
+        },
+        "KH2PO4": {
+            "type": "array",
+            "description": "磷钾复合肥施用信息，用一个对象数组存储多次施肥信息，第n个对象存储第n次的施肥信息",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "date": {
+                        "type": "string",
+                        "description": "日期,YYYY-MM-DD"
+                    },
+                    "amount": {
+                        "type": "float",
+                        "description": "施肥量数值"
+                    }
+                }
+            }
+        }
+    }
+}
