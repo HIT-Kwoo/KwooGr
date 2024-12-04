@@ -1,5 +1,5 @@
 <div align="center">
-<img src="./assets/image-20241121160240431.png" width="300em" ></img> 
+<img src="./assets/title.png" width="300em" ></img> 
 </div>
 
 # 天工开悟-农业生长大模型(KwooGr)
@@ -34,7 +34,7 @@
 <img src="assets/structure.jpg">
 
 ### 模型使用演示
-<img src="assets\PixPin_2024-11-22_18-39-15.gif">
+<img src="assets\KwooGr_show.gif">
 
 ## 模型效果
 在生长数据的预测上，模型具有非常高的准确率，对水稻、玉米、大豆、小麦等**22类作物**，共**95个品种**的**生长预测误差<10%**，能够帮助农民和农业专家预测作物生长全周期的表型性状。
@@ -42,18 +42,18 @@
 <table align="center">
     <tr>
         <td>
-            <img src="assets/大豆.JPG">
+            <img src="assets/soybean.JPG">
         </td>
         <td>
-            <img src="assets/玉米.JPG">
+            <img src="assets/maize.JPG">
         </td>
     </tr>
     <tr>
         <td>
-            <img src="assets/水稻.JPG">
+            <img src="assets/rice.JPG">
         </td>
         <td>
-            <img src="assets/小麦.JPG">
+            <img src="assets/wheat.JPG">
         </td>
     </tr>
 </table>
@@ -70,11 +70,14 @@
 
 欢迎大家扫描下方二维码下载**天工开悟APP**进行体验。
 
-使用方法：第一步，打开APP，输入**邀请码(8t6nwq)** 进入登录页面，随后切换到“密码登录”页面输入账号、密码并勾选同意协议选项进行登录。第二步，登录后进入问答页面，在下方输入框中输入想要询问的问题，等待回答。
+* 第一步，首次打开APP进入登录页面，可选择本机手机号一键登录或手机验证码登录，需勾选同意协议选项。
+* 第二步，登录后会直接进入问答页面，在下方输入框中输入想要询问的问题，等待回答。
+* 如需体验多模态问答能力，可以点击问答界面输入框左侧上传图片，选择图片后输入文本内容提问。
+* 如需体验语音对话功能，可以点击问答输入框右侧进行录音，录音结果会实时转录为文字呈现，录音完毕后点击发送键提问。此外回复的内容下方有播放按钮，点击后将播放回答内容的音频。
 
 <div align="center">
 
-![image-20241121110726793](assets/image-20241121110726793.png)
+![QR](assets/QR.png)
 
 </div>
 
